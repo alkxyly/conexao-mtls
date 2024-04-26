@@ -32,3 +32,22 @@ sequenceDiagram
     Note over Client, Server: Conclusão do Handshake com autenticação MTLS bem-sucedida comunicação protegida pela criptografia TLS
 
 ```
+
+
+## Casos de Uso
+
+1. **Comunicação Cliente-Servidor em Aplicações Web**:
+   - MTLS é amplamente utilizado em aplicações web para garantir a autenticação tanto do cliente quanto do servidor em transações seguras. Isso é especialmente importante em cenários onde dados sensíveis são transferidos, como em aplicações de bancos online, sistemas de comércio eletrônico e plataformas de saúde online.
+
+2. **APIs e Microserviços**:
+   - Em arquiteturas de microserviços, onde há comunicação entre diferentes serviços, o MTLS pode ser usado para autenticar cada serviço envolvido na comunicação. Isso garante que apenas os serviços autorizados possam se comunicar entre si, reduzindo o risco de acesso não autorizado.
+
+3. **Autenticação de Dispositivos IoT (Internet das Coisas)**:
+   - No contexto da IoT, o MTLS pode ser utilizado para autenticar dispositivos IoT que se conectam a servidores na nuvem. Isso garante que apenas dispositivos confiáveis possam se comunicar com a infraestrutura de back-end, protegendo contra ataques maliciosos e garantindo a integridade dos dados.
+
+4. **Comunicação entre Servidores e Serviços em Nuvem**:
+   - Em ambientes de nuvem, onde os serviços são distribuídos entre diferentes provedores e data centers, o MTLS pode ser usado para autenticar a comunicação entre servidores e serviços em nuvem. Isso ajuda a garantir que apenas os serviços autorizados possam acessar recursos específicos na nuvem.
+
+5. **Segurança em Redes Corporativas**:
+   - Nas redes corporativas, o MTLS pode ser implementado para garantir a autenticação mútua entre os dispositivos de rede, como roteadores, firewalls e servidores. Isso ajuda a proteger contra ataques de intermediários e garante que apenas dispositivos autorizados possam se comunicar na rede corporativa.
+

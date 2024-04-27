@@ -51,3 +51,31 @@ sequenceDiagram
 5. **Segurança em Redes Corporativas**:
    - Nas redes corporativas, o MTLS pode ser implementado para garantir a autenticação mútua entre os dispositivos de rede, como roteadores, firewalls e servidores. Isso ajuda a proteger contra ataques de intermediários e garante que apenas dispositivos autorizados possam se comunicar na rede corporativa.
 
+
+## Implementação
+
+Para a geração dos certificados é necessário a instalação do OpenSSL.
+
+#### 1. Gerando a CA raiz autoassinada
+
+```
+openssl req -x509 -sha256 -days 3650 -newkey rsa:4096 -keyout ca.key -out ca.crt
+```
+
+
+```
+Observações:
+
+1. Certificados com Extensão .crt:
+
+* Um arquivo com extensão ".crt" é um certificado digital, também conhecido como certificado X.509.
+* Contém a chave pública de um servidor ou de uma entidade, juntamente com outras informações como o nome da entidade, o período de validade e a assinatura digital de uma autoridade de certificação (CA).
+* Usado para autenticar a identidade de um servidor durante o processo de handshake SSL/TLS.
+
+2. Chaves Privadas com Extensão .key:
+
+* Um arquivo com extensão ".key" contém a chave privada correspondente ao certificado digital.
+* Mantida em segredo, a chave privada é usada para descriptografar os dados que foram criptografados com a chave pública correspondente.
+* Parte crítica do par de chaves usado na criptografia assimétrica, especialmente no contexto do TLS/SSL, onde é usada pelo servidor para descriptografar os dados recebidos do cliente durante o handshake SSL/TLS.
+```
+

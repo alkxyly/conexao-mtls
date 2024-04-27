@@ -1,0 +1,14 @@
+server:
+  ssl:
+    key-store: ../certificados/keystore.jks
+    key-store-password: ${KEY_STORE_PASSWORD:123456}
+    key-alias: localhost
+    key-password: ${KEY_PASSWORD:123456}
+    enabled: true
+  port: 8444
+
+spring:
+  security:
+    user:
+      name: Servidor
+      password: servidor

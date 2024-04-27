@@ -77,5 +77,9 @@ Observações:
 * Um arquivo com extensão ".key" contém a chave privada correspondente ao certificado digital.
 * Mantida em segredo, a chave privada é usada para descriptografar os dados que foram criptografados com a chave pública correspondente.
 * Parte crítica do par de chaves usado na criptografia assimétrica, especialmente no contexto do TLS/SSL, onde é usada pelo servidor para descriptografar os dados recebidos do cliente durante o handshake SSL/TLS.
+
+3. Arquivo .p12
+
+*Um arquivo com a extensão .p12 é um arquivo de contêiner de chave pessoal, também conhecido como arquivo PKCS #12. Este arquivo é usado para armazenar certificados digitais e suas chaves privadas em um único arquivo protegido por senha.
 ```
 

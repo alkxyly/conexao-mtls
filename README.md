@@ -63,6 +63,44 @@ openssl req -x509 -sha256 -days 3650 -newkey rsa:4096 -keyout ca.key -out ca.crt
 ```
 
 
+#### 2. Certificado do servidor
+
+```
+openssl req -new -newkey rsa:4096 -keyout localhost.key -out localhost.csr
+```
+
+#### 3. Criar arquivo com parâmetros adicionais para assinatura do certificado (localhost.ext)
+
+```
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = localhost
+```
+
+
+#### 4. Assinar a solicitação com o certificado raiz e sua chave privada
+
+```
+openssl x509 -req -CA rootCA.crt -CAkey rootCA.key -in localhost.csr -out localhost.crt -days 365 -CAcreateserial -extfile localhost.ext
+```
+
+#### 5. Importar certificado assinado e a sua chave privada para o keystore.jks
+O arquivo com extensão .p12 é utilizado para empacotar a chave provada do servidor junto com o certificado assinado.
+
+```
+openssl pkcs12 -export -out localhost.p12 -name "localhost" -inkey localhost.key -in localhost.crt
+```
+
+#### 6. Usando o keytool para criar um repositório e importar o arquivo .p12
+O arquivo com extensão .p12 é utilizado para empacotar a chave provada do servidor junto com o certificado assinado.
+
+```
+keytool -importkeystore -srckeystore localhost.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS
+```
+
+
 ```
 Observações:
 
@@ -85,5 +123,13 @@ Observações:
 4. Arquivo .jks
 
 * Um arquivo com a extensão .jks é um arquivo de armazenamento de chaves Java KeyStore. Este arquivo é usado principalmente em aplicativos Java para armazenar certificados digitais e suas chaves privadas, bem como outras informações de segurança, como chaves de confiança (truststore) e chaves de autoridades de certificação (CAs).
+```
+
+#### Utilidade
+
+##### Listar informações do certificado
+
+```
+openssl x509 -in localhost.crt -text
 ```
 

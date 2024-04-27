@@ -81,5 +81,9 @@ Observações:
 3. Arquivo .p12
 
 * Um arquivo com a extensão .p12 é um arquivo de contêiner de chave pessoal, também conhecido como arquivo PKCS #12. Este arquivo é usado para armazenar certificados digitais e suas chaves privadas em um único arquivo protegido por senha.
+
+4. Arquivo .jks
+
+* Um arquivo com a extensão .jks é um arquivo de armazenamento de chaves Java KeyStore. Este arquivo é usado principalmente em aplicativos Java para armazenar certificados digitais e suas chaves privadas, bem como outras informações de segurança, como chaves de confiança (truststore) e chaves de autoridades de certificação (CAs).
 ```
 

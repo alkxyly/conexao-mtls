@@ -87,7 +87,7 @@ openssl x509 -req -CA rootCA.crt -CAkey rootCA.key -in localhost.csr -out localh
 ```
 
 #### 5. Importar certificado assinado e a sua chave privada para o keystore.jks
-O arquivo com extensão .p12 é utilizado para empacotar a chave provada do servidor junto com o certificado assinado.
+O arquivo com extensão .p12 é utilizado para empacotar a chave privada do servidor junto com o certificado assinado.
 
 ```
 openssl pkcs12 -export -out localhost.p12 -name "localhost" -inkey localhost.key -in localhost.crt

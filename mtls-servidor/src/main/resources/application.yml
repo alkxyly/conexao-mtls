@@ -1,14 +1,11 @@
 server:
+  port: 8443
   ssl:
-    key-store: ../certificados/keystore.jks
+    key-store: classpath:certificados/server.p12
     key-store-password: ${KEY_STORE_PASSWORD:123456}
-    key-alias: localhost
+    key-store-type: PKCS12
+    client-auth: need
+    trust-store: classpath:certificados/truststore.p12
     key-password: ${KEY_PASSWORD:123456}
-    enabled: true
-  port: 8444
-
-spring:
-  security:
-    user:
-      name: Servidor
-      password: servidor
+    trust-store-password: ${TRUST_STRORE_PASSWORD:123456}
+    trust-store-type: PKCS12

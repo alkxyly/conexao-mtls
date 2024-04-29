@@ -133,3 +133,9 @@ Observações:
 openssl x509 -in localhost.crt -text
 ```
 
+#### Listar as entradas de um arquivo .jks|.p12
+
+```
+keytool -list -keystore [arquivo].[jks|p12]
+```
+

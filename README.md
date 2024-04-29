@@ -126,21 +126,27 @@ Observações:
 
 #### Utilidade
 
-##### Listar informações do certificado
+##### 1. Listar informações do certificado
 
 ```
 openssl x509 -in localhost.crt -text
 ```
 
-##### Listar as entradas de um arquivo .jks|.p12
+##### 2. Listar as entradas de um arquivo .jks|.p12
 
 ```
 keytool -list -keystore [arquivo].[jks|p12]
 ```
 
-##### Gerando um arquivo JKS ou P12 com um par de chaves
+##### 3. Gerando um arquivo JKS ou P12 com um par de chaves
 
 ```
 keytool -genkeypair -alias [alias_name] -keyalg RSA -keypass **** -keystore [store_name].jks -storepass **** -validity 3650
+```
+
+##### 4. A partir de um arquivo .cer gerar o arquivo .p12
+
+```
+keytool -genkeypair -alias [alias_name] -keyalg RSA -keypass ****** -keystore [store_name].p12 -storepass ******
 ```
 

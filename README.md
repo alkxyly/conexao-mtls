@@ -132,9 +132,15 @@ Observações:
 openssl x509 -in localhost.crt -text
 ```
 
-#### Listar as entradas de um arquivo .jks|.p12
+##### Listar as entradas de um arquivo .jks|.p12
 
 ```
 keytool -list -keystore [arquivo].[jks|p12]
+```
+
+##### Gerando um arquivo JKS ou P12 com um par de chaves
+
+```
+keytool -genkeypair -alias [alias_name] -keyalg RSA -keypass **** -keystore [store_name].jks -storepass **** -validity 3650
 ```
 

@@ -94,7 +94,6 @@ openssl pkcs12 -export -out localhost.p12 -name "localhost" -inkey localhost.key
 ```
 
 #### 6. Usando o keytool para criar um repositório e importar o arquivo .p12
-O arquivo com extensão .p12 é utilizado para empacotar a chave provada do servidor junto com o certificado assinado.
 
 ```
 keytool -importkeystore -srckeystore localhost.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS

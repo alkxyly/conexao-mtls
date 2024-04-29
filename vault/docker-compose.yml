@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+  vault-service:
+    container_name: vault
+    image: vault
+    ports:
+      - "8200:8200"
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: "myroot"
+      VAULT_ADDR: "http://127.0.0.1:8200"
+    cap_add:
+      - IPC_LOCK
+    networks:
+      - default
+
+  vault-prepopulate:
+    image: alpine/curl
+    depends_on:
+      - vault-service
+    volumes:
+      - ./prepopulate_vault.sh:/usr/local/bin/prepopulate_vault.sh
+    command: ["sh", "-c", "/usr/local/bin/prepopulate_vault.sh"]
+    networks:
+      - default
+
+networks:
+  default:
+    name: vaultnetwork
+    driver: bridge
